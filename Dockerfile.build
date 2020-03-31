@@ -1,0 +1,9 @@
+FROM ubuntu:focal
+
+RUN \
+    apt-get update \
+    && apt-get dist-upgrade -y \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y sudo wget systemd-sysv
+
+VOLUME [ "/run" ]
+ENTRYPOINT [ "/sbin/init" ]
