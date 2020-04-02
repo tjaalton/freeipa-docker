@@ -3,7 +3,8 @@ FROM ubuntu:focal
 RUN \
     apt-get update \
     && apt-get dist-upgrade -y \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y sudo wget systemd-sysv
+    && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y locales sudo systemd-sysv wget
 
 VOLUME [ "/run" ]
 ENTRYPOINT [ "/sbin/init" ]
