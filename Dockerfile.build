@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM debian:sid
 
 RUN \
     apt-get update \
