@@ -6,7 +6,8 @@ RUN \
     apt-get update \
     && apt-get dist-upgrade -y \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
-    && apt-get install -y locales sudo systemd-sysv wget
+    && apt-get install -y locales sudo systemd-sysv wget \
+    && echo "azureuser ALL = (ALL) NOPASSWD: ALL" > /etc/sudoers.d/waagent
 
 VOLUME [ "/run" ]
 ENTRYPOINT [ "/sbin/init" ]
